@@ -10,7 +10,8 @@ import { RepositorioRoutes } from './modules/repositorio/repositorio.routes';
  *
  * @remarks
  * Proporciona un único punto de acceso a los endpoints
- * del backend, agrupando los módulos de usuarios y productos.
+ * del backend, agrupando los módulos de usuarios y productos,
+ * transacciones y repositorios.
  *
  * @example
  * ```ts

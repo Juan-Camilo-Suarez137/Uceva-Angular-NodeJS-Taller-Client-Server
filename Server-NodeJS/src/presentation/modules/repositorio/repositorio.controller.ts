@@ -32,8 +32,14 @@ export class RepositorioController {
    * ```
    */
   getAllRepositorios = (req: Request, res: Response): void => {
-    const { countRepositorios } = req.params;
+    const countRepositorios = Number(req.params.countRepositorios);
 
+    if (!Number.isInteger(countRepositorios) || countRepositorios < 1) {
+    res.status(400).json({
+      error: 'La cantidad de repositorios debe ser un entero mayor que cero'
+    });
+    return;
+  }
     setTimeout(() => {
       this.repositorioService
       .getAllRepositorios(Number(countRepositorios))
