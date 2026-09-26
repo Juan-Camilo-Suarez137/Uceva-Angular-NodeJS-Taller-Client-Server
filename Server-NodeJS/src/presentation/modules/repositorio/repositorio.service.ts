@@ -68,12 +68,12 @@ export class RepositorioService {
   private generateRepositorio(id: number): Promise<Repositorio> {
     return Promise.resolve({
       id,
-      nombre: faker.word.words({ count: { min: 1, max: 3 } }),
+      nombre: faker.lorem.slug(),
       propietario: faker.internet.username(),
       lenguajePrincipal: faker.helpers.arrayElement(this.lenguajePrincipal),
       estrellas: faker.number.int({ min: 0, max: 10000 }),
       forks: faker.number.int({ min: 0, max: 1000 }),
-      fechaCreacion: faker.date.past(),
+      fechaCreacion: faker.date.past({ years: 5 }),
       descripcion: faker.lorem.sentence(),
       visibilidad: faker.helpers.arrayElement(this.visibilidad),
     });
