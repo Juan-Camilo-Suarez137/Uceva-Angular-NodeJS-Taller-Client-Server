@@ -76,6 +76,64 @@
  * @openapi
  * components:
  *   schemas:
+ *     Repositorio:
+ *       type: object
+ *       description: Representa un repositorio de código
+ *       required:
+ *         - id
+ *         - nombre
+ *         - propietario
+ *         - lenguajePrincipal
+ *         - estrellas
+ *         - forks
+ *         - fechaCreacion
+ *         - descripcion
+ *         - visibilidad
+ *       properties:
+ *         id:
+ *           type: number
+ *           example: 1
+ *         nombre:
+ *           type: string
+ *           example: proyecto-ejemplo
+ *         propietario:
+ *           type: string
+ *           example: usuario-ejemplo
+ *         lenguajePrincipal:
+ *           type: string
+ *           enum:
+ *             - Java
+ *             - Javascript
+ *             - Typescript
+ *             - Python
+ *             - C++
+ *             - Ruby
+ *           example: Typescript
+ *         estrellas:
+ *           type: number
+ *           example: 120
+ *         forks:
+ *           type: number
+ *           example: 25
+ *         fechaCreacion:
+ *           type: string
+ *           format: date-time
+ *           example: 2024-01-15T00:00:00.000Z
+ *         descripcion:
+ *           type: string
+ *           example: Repositorio de ejemplo
+ *         visibilidad:
+ *           type: string
+ *           enum:
+ *             - Público
+ *             - Privado
+ *           example: Público
+ */
+
+/**
+ * @openapi
+ * components:
+ *   schemas:
  *     Transaction:
  *       type: object
  *       description: Representa una transacción bancaria generada con faker.finance

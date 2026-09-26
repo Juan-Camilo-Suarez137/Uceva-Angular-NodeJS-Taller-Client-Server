@@ -38,6 +38,12 @@ export class RepositorioRoutes {
      *     responses:
      *       201:
      *         description: Lista de repositorios generados
+    *         content:
+    *           application/json:
+    *             schema:
+    *               type: array
+    *               items:
+    *                 $ref: '#/components/schemas/Repositorio'
      *       400:
      *         description: Parámetro inválido
      */
