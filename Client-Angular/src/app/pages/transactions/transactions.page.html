@@ -1,9 +1,9 @@
 @switch (state) {
   @case ('loading') {
-    <app-alert alertState="loading"></app-alert>
+    <app-alert alertState="loading" text="Cargando Transacciones..."></app-alert>
   }
   @case ('error') {
-    <app-alert alertState="error"></app-alert>
+    <app-alert alertState="error" text="Error al Cargar las Transacciones"></app-alert>
   }
   @case ('success') {
     <app-transactions-table [transactions]="transactions"></app-transactions-table>

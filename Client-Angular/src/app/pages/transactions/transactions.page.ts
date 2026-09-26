@@ -4,6 +4,7 @@ import { Transaction } from '../../interfaces/transactions.interface';
 import { TransactionsService } from '../../services/transactions/transactions.service';
 import { State } from '../../interfaces/state.interface';
 import { AlertComponent } from '../../components/alert/alert.component';
+import { delay } from 'rxjs';
 
 /**
  * Componente contenedor de transacciones.
@@ -50,7 +51,7 @@ export class TransactionsPage {
    */
   ngOnInit(): void {
     this.state = 'loading';
-    this.transactionsService.getAllTransactions(10).subscribe({
+    this.transactionsService.getAllTransactions(10).pipe(delay(3000)).subscribe({
       next: (transactions) => {
         this.transactions = transactions;
         this.state = 'success';

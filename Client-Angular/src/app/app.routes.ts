@@ -45,8 +45,7 @@ export const routes: Routes = [
    * Captura cualquier ruta no definida y redirige
    * automáticamente a la ruta de usuarios.
    */
+  { path: 'transactions', component: TransactionsPage },
   { path: '**', redirectTo: 'users' },
-
- {path: 'transactions', component: TransactionsPage},
 
 ];
