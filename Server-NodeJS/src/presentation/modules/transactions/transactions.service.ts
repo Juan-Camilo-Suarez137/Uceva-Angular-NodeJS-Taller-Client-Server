@@ -22,7 +22,7 @@ export class TransactionsService {
       amount: Number(faker.finance.amount({ min: 10, max: 5000 })),
       currency: faker.finance.currencyCode(),
       issuer: faker.finance.creditCardIssuer(),
-      date: faker.date.recent({ days: 30 }).toISOString().split('T')[0],
+      date: faker.date.recent({ days: 30 }).toISOString().slice(0, 10),
     }));
   }
 }
