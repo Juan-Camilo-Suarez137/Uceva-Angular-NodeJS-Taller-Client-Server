@@ -7,7 +7,7 @@ import { MOCK_TRANSACTIONS } from '../../mocks/transactions.mocks';
 describe('TransactionsPage', () => {
   let component: TransactionsPage;
   let fixture: ComponentFixture<TransactionsPage>;
-  const transactionsServiceMock = { getAll: jest.fn() };
+  const transactionsServiceMock = { getAllTransactions: jest.fn() };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -22,17 +22,19 @@ describe('TransactionsPage', () => {
   afterEach(() => jest.clearAllMocks());
 
   it('should load transactions and set state to success', () => {
-    transactionsServiceMock.getAll.mockReturnValue(of(MOCK_TRANSACTIONS));
+    transactionsServiceMock.getAllTransactions.mockReturnValue(of(MOCK_TRANSACTIONS));
     fixture.detectChanges();
 
+    expect(transactionsServiceMock.getAllTransactions).toHaveBeenCalledWith(10);
     expect(component.state).toBe('success');
     expect(component.transactions).toEqual(MOCK_TRANSACTIONS);
   });
 
   it('should set state to error when the service fails', () => {
-    transactionsServiceMock.getAll.mockReturnValue(throwError(() => new Error('error')));
+    transactionsServiceMock.getAllTransactions.mockReturnValue(throwError(() => new Error('error')));
     fixture.detectChanges();
 
+    expect(transactionsServiceMock.getAllTransactions).toHaveBeenCalledWith(10);
     expect(component.state).toBe('error');
   });
 });
