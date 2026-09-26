@@ -32,7 +32,7 @@ export class RepositorioController {
    * ```
    */
   getAllRepositorios = (req: Request, res: Response): void => {
-    const countRepositorios = Number(req.params.countRepositorios);
+  const countRepositorios = Number(req.params.countRepositorios);
 
     if (!Number.isInteger(countRepositorios) || countRepositorios < 1) {
     res.status(400).json({

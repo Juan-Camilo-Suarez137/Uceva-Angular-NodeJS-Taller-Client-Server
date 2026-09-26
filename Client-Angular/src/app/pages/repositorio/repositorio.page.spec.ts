@@ -7,6 +7,7 @@ import { RepositorioPage } from './repositorio.page';
 describe('RepositorioPage', () => {
   let component: RepositorioPage;
   let fixture: ComponentFixture<RepositorioPage>;
+  let consoleErrorSpy: jest.SpyInstance;
   const repositorioServiceMock = {
     getAllRepositorios: jest.fn(),
   };
@@ -21,9 +22,13 @@ describe('RepositorioPage', () => {
 
     fixture = TestBed.createComponent(RepositorioPage);
     component = fixture.componentInstance;
+    consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   });
 
-  afterEach(() => jest.clearAllMocks());
+  afterEach(() => {
+    consoleErrorSpy.mockRestore();
+    jest.clearAllMocks();
+  });
 
   it('debería mostrar el estado de carga mientras obtiene repositorios', () => {
     repositorioServiceMock.getAllRepositorios.mockReturnValue(NEVER);

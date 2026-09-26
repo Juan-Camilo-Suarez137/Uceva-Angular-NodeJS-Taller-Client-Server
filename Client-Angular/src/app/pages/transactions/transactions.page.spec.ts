@@ -7,6 +7,7 @@ import { MOCK_TRANSACTIONS } from '../../mocks/transactions.mocks';
 describe('TransactionsPage', () => {
   let component: TransactionsPage;
   let fixture: ComponentFixture<TransactionsPage>;
+  let consoleErrorSpy: jest.SpyInstance;
   const transactionsServiceMock = { getAllTransactions: jest.fn() };
 
   beforeEach(async () => {
@@ -17,9 +18,13 @@ describe('TransactionsPage', () => {
 
     fixture = TestBed.createComponent(TransactionsPage);
     component = fixture.componentInstance;
+    consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   });
 
-  afterEach(() => jest.clearAllMocks());
+  afterEach(() => {
+    consoleErrorSpy.mockRestore();
+    jest.clearAllMocks();
+  });
 
   it('should show the loading alert while transactions are being loaded', () => {
     transactionsServiceMock.getAllTransactions.mockReturnValue(NEVER);
