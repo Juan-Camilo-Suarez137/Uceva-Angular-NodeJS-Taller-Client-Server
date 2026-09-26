@@ -1,0 +1,11 @@
+@switch (state) {
+  @case ('loading') {
+    <app-alert alertState="loading" text="Cargando commits..."></app-alert>
+  }
+  @case ('error') {
+    <app-alert alertState="error" text="Error al cargar los commits"></app-alert>
+  }
+  @case ('success') {
+    <app-commit-table [commits]="commits"></app-commit-table>
+  }
+}
