@@ -23,19 +23,12 @@ describe('TransactionsService', () => {
   });
 
   it('should request the transactions with GET', () => {
-    service.getAll(5).subscribe((transactions) => {
+    service.getAllTransactions(5).subscribe((transactions) => {
       expect(transactions).toEqual(MOCK_TRANSACTIONS);
     });
 
     const req = httpMock.expectOne('api/transactions/5');
     expect(req.request.method).toBe('GET');
-    req.flush(MOCK_TRANSACTIONS);
-  });
-
-  it('should use 10 as the default count', () => {
-    service.getAll().subscribe();
-
-    const req = httpMock.expectOne('api/transactions/10');
     req.flush(MOCK_TRANSACTIONS);
   });
 });

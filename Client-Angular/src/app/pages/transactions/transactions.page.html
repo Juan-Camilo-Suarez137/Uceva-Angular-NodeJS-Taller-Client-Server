@@ -1,0 +1,11 @@
+@switch (state) {
+  @case ('loading') {
+    <app-alert alertState="loading"></app-alert>
+  }
+  @case ('error') {
+    <app-alert alertState="error"></app-alert>
+  }
+  @case ('success') {
+    <app-transactions-table [transactions]="transactions"></app-transactions-table>
+  }
+}
