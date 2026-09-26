@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { UsersPage } from './pages/users/users.page';
 import { ProductsPage } from './pages/products/products.page';
 import { TransactionsPage } from './pages/transactions/transactions.page';
+import { RepositorioPage } from './pages/repositorio/repositorio.page';
 
 /**
  * Definición de las rutas principales de la aplicación.
@@ -17,6 +18,7 @@ import { TransactionsPage } from './pages/transactions/transactions.page';
  *
  * @see {@link UsersPage}
  * @see {@link ProductsPage}
+ * @see {@link RepositorioPage}
  */
 export const routes: Routes = [
 
@@ -46,6 +48,16 @@ export const routes: Routes = [
    * automáticamente a la ruta de usuarios.
    */
   { path: 'transactions', component: TransactionsPage },
+
+  /**
+   * Ruta de repositorios.
+   *
+   * @remarks
+   * Renderiza el componente `RepositorioPage`, encargado
+   * de mostrar el listado de repositorios.
+   */
+  { path: 'repositorios', component: RepositorioPage },
+
   { path: '**', redirectTo: 'users' },
 
 ];

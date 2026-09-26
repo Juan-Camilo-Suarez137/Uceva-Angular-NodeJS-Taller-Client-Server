@@ -2,6 +2,7 @@ import { Router } from "express";
 import { UsersRoutes } from "./modules/users/users.routes";
 import { ProductsRoutes } from "./modules/products/products.routes";
 import { TransactionsRoutes } from './modules/transactions/transactions.routes';
+import { RepositorioRoutes } from './modules/repositorio/repositorio.routes';
 
 
 /**
@@ -9,7 +10,8 @@ import { TransactionsRoutes } from './modules/transactions/transactions.routes';
  *
  * @remarks
  * Proporciona un único punto de acceso a los endpoints
- * del backend, agrupando los módulos de usuarios y productos.
+ * del backend, agrupando los módulos de usuarios y productos,
+ * transacciones y repositorios.
  *
  * @example
  * ```ts
@@ -34,6 +36,7 @@ export class AppRoutes {
     router.use("/api/users", UsersRoutes.routes);
     router.use("/api/products", ProductsRoutes.routes);
     router.use('/api/transactions', TransactionsRoutes.routes);
+    router.use('/api/repositorios', RepositorioRoutes.routes);
     return router;
   }
 }
