@@ -1,0 +1,38 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover align-middle">
+    <thead>
+      <tr>
+        <th>Hash</th>
+        <th>Mensaje</th>
+        <th>Tipo</th>
+        <th>Autor</th>
+        <th>Rama</th>
+        <th>Fecha</th>
+        <th>Archivos</th>
+        <th>Agregadas</th>
+        <th>Eliminadas</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (commit of commits; track commit.id) {
+        <tr>
+          <td>{{ commit.hash }}</td>
+          <td>{{ commit.mensaje }}</td>
+          <td>
+            <dsb-badge-atom
+              [text]="commit.tipo"
+              [type]="categoryMap[commit.tipo]"
+              typeText="text-white">
+            </dsb-badge-atom>
+          </td>
+          <td>{{ commit.autor }}</td>
+          <td>{{ commit.rama }}</td>
+          <td>{{ commit.fecha | date: 'yyyy-MM-dd' }}</td>
+          <td>{{ commit.archivosModificados }}</td>
+          <td class="text-success">+{{ commit.lineasAgregadas }}</td>
+          <td class="text-danger">-{{ commit.lineasEliminadas }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

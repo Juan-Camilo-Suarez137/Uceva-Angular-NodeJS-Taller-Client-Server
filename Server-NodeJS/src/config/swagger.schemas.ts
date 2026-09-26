@@ -134,6 +134,66 @@
  * @openapi
  * components:
  *   schemas:
+ *     Commit:
+ *       type: object
+ *       description: Representa un commit realizado en un repositorio
+ *       required:
+ *         - id
+ *         - hash
+ *         - mensaje
+ *         - tipo
+ *         - autor
+ *         - rama
+ *         - fecha
+ *         - archivosModificados
+ *         - lineasAgregadas
+ *         - lineasEliminadas
+ *       properties:
+ *         id:
+ *           type: number
+ *           example: 1
+ *         hash:
+ *           type: string
+ *           example: a1b2c3d
+ *         mensaje:
+ *           type: string
+ *           example: agregar validación de formulario
+ *         tipo:
+ *           type: string
+ *           enum:
+ *             - feat
+ *             - fix
+ *             - refactor
+ *             - docs
+ *             - test
+ *             - chore
+ *             - style
+ *           example: feat
+ *         autor:
+ *           type: string
+ *           example: usuario-ejemplo
+ *         rama:
+ *           type: string
+ *           example: develop
+ *         fecha:
+ *           type: string
+ *           format: date-time
+ *           example: 2024-01-15T00:00:00.000Z
+ *         archivosModificados:
+ *           type: number
+ *           example: 3
+ *         lineasAgregadas:
+ *           type: number
+ *           example: 45
+ *         lineasEliminadas:
+ *           type: number
+ *           example: 12
+ */
+
+/**
+ * @openapi
+ * components:
+ *   schemas:
  *     Transaction:
  *       type: object
  *       description: Representa una transacción bancaria generada con faker.finance

@@ -36,7 +36,8 @@ describe('App', () => {
         { text: 'Usuarios', url: '/users' },
         { text: 'Productos', url: '/products' },
         { text: 'Transacciones', url: '/transactions' },
-        { text: 'Repositorios', url: '/repositorios' }
+        { text: 'Repositorios', url: '/repositorios' },
+        { text: 'Commits', url: '/commits' }
       ]
     });
   });
