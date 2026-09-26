@@ -3,6 +3,7 @@ import { UsersRoutes } from "./modules/users/users.routes";
 import { ProductsRoutes } from "./modules/products/products.routes";
 import { TransactionsRoutes } from './modules/transactions/transactions.routes';
 import { RepositorioRoutes } from './modules/repositorio/repositorio.routes';
+import { CommitRoutes } from "./modules/commit/commit.routes";
 
 
 /**
@@ -37,6 +38,7 @@ export class AppRoutes {
     router.use("/api/products", ProductsRoutes.routes);
     router.use('/api/transactions', TransactionsRoutes.routes);
     router.use('/api/repositorios', RepositorioRoutes.routes);
+    router.use('/api/commits', CommitRoutes.routes);
     return router;
   }
 }
