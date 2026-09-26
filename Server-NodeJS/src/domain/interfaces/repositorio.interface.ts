@@ -50,7 +50,7 @@ export interface Repositorio {
     descripcion: string;
 
     /** Nivel de visibilidad del repositorio, por ejemplo, público o privado */
-    visibilidad: string;
+    visibilidad: Visibilidad;
 }
 
 /**
@@ -62,4 +62,8 @@ export type LenguajePrincipal =
     | 'Typescript'
     | 'Python'
     | 'C++'
-    | 'Otros';
+    | 'Ruby';
+/**
+ * Nivel de visibilidad de un repositorio.
+ */
+export type Visibilidad = 'Público' | 'Privado';

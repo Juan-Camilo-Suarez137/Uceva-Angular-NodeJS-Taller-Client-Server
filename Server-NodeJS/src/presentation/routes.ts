@@ -2,6 +2,7 @@ import { Router } from "express";
 import { UsersRoutes } from "./modules/users/users.routes";
 import { ProductsRoutes } from "./modules/products/products.routes";
 import { TransactionsRoutes } from './modules/transactions/transactions.routes';
+import { RepositorioRoutes } from './modules/repositorio/repositorio.routes';
 
 
 /**
@@ -34,6 +35,7 @@ export class AppRoutes {
     router.use("/api/users", UsersRoutes.routes);
     router.use("/api/products", ProductsRoutes.routes);
     router.use('/api/transactions', TransactionsRoutes.routes);
+    router.use('/api/repositorios', RepositorioRoutes.routes);
     return router;
   }
 }

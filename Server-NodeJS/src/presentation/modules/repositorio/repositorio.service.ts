@@ -11,11 +11,11 @@ import { faker } from '@faker-js/faker';
 export class RepositorioService {
 
   /**
-  * Lista de lenguajes disponibles para los repositorios.
-   *
-   * @remarks
-   * Se utiliza para asignar aleatoriamente un lenguaje de programacion
-  * a cada repositorio.
+    * Lista de lenguajes disponibles para los repositorios.
+    *
+    * @remarks
+    * Se utiliza para asignar aleatoriamente un lenguaje de programación
+    * a cada repositorio.
    */
   private lenguajePrincipal: LenguajePrincipal[] = [
     'Java',
@@ -41,18 +41,18 @@ export class RepositorioService {
   /**
    * Obtiene un listado de repositorio generados dinámicamente.
    *
-  * @param countUsers Cantidad de repositorios a generar
-   * @returns Promesa que resuelve un arreglo de respositorios
+    * @param countRepositorios Cantidad de repositorios a generar
+    * @returns Promesa que resuelve un arreglo de repositorios
    *
    * @example
    * ```ts
    * const repositories = await RepositorioService.getAllRepositorios(5);
    * ```
    */
-  public async getAllRepositorios(countUsers: number): Promise<Repositorio[]> {
+  public async getAllRepositorios(countRepositorios: number): Promise<Repositorio[]> {
     const repos: Promise<Repositorio>[] = [];
 
-    for (let i = 1; i <= countUsers; i++) {
+    for (let i = 1; i <= countRepositorios; i++) {
       repos.push(this.generateRepositorio(i));
     }
 
@@ -62,8 +62,8 @@ export class RepositorioService {
   /**
   * Genera un repositorio ficticio.
    *
-  * @param id Identificador único del repositorio
-  * @returns Promesa que resuelve un repositorio generado
+    * @param id Identificador único del repositorio
+    * @returns Promesa que resuelve un repositorio generado
    */
   private generateRepositorio(id: number): Promise<Repositorio> {
     return Promise.resolve({
