@@ -1,0 +1,32 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover align-middle">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Cuenta</th>
+        <th>Número</th>
+        <th>Tipo</th>
+        <th>Monto</th>
+        <th>Franquicia</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (transaction of transactions; track transaction.id) {
+        <tr>
+          <td>{{ transaction.date }}</td>
+          <td>{{ transaction.accountName }}</td>
+          <td>{{ transaction.accountNumber }}</td>
+          <td>
+            <dsb-badge-atom
+              [text]="transaction.type"
+              [type]="typeBadge[transaction.type]"
+              typeText="text-white">
+            </dsb-badge-atom>
+          </td>
+          <td>{{ transaction.amount }} {{ transaction.currency }}</td>
+          <td>{{ transaction.issuer }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

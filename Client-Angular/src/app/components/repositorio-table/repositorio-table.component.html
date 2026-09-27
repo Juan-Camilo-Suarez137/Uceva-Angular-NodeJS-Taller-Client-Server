@@ -1,0 +1,42 @@
+<div class="table-responsive table-striped border">
+  <table class="table table-striped table-hover align-middle">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Propietario</th>
+        <th>Lenguaje</th>
+        <th>Estrellas</th>
+        <th>Forks</th>
+        <th>Fecha de creación</th>
+        <th>Descripción</th>
+        <th>Visibilidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (repositorio of repositorios; track repositorio.id) {
+        <tr>
+          <td>{{ repositorio.nombre }}</td>
+          <td>{{ repositorio.propietario }}</td>
+          <td>
+            <dsb-badge-atom
+              [text]="repositorio.lenguajePrincipal"
+              [type]="categoryMap[repositorio.lenguajePrincipal]"
+              typeText="text-white">
+            </dsb-badge-atom>
+          </td>
+          <td>{{ repositorio.estrellas }}</td>
+          <td>{{ repositorio.forks }}</td>
+          <td>{{ repositorio.fechaCreacion | date: 'yyyy-MM-dd' }}</td>
+          <td>{{ repositorio.descripcion }}</td>
+          <td>
+            <dsb-badge-atom
+              [text]="repositorio.visibilidad"
+              [type]="visibilityMap[repositorio.visibilidad]"
+              typeText="text-white">
+            </dsb-badge-atom>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
