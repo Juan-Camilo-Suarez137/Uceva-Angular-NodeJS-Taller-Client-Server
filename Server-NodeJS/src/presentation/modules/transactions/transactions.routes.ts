@@ -36,6 +36,8 @@ export class TransactionsRoutes {
      *               type: array
      *               items:
      *                 $ref: '#/components/schemas/Transaction'
+    *       400:
+    *         description: Parámetro inválido; debe ser un entero mayor que cero
      */
     router.get('/:countTransactions', transactionsController.getTransactions);
 

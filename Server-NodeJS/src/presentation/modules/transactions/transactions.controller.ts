@@ -17,6 +17,14 @@ export class TransactionsController {
   getTransactions = (req: Request, res: Response) => {
     try {
       const count = Number(req.params['countTransactions']);
+
+      if (!Number.isInteger(count) || count < 1) {
+        res.status(400).json({
+          error: 'La cantidad de transacciones debe ser un entero mayor que cero',
+        });
+        return;
+      }
+
       const transactions = this.transactionsService.getTransactions(count);
       res.status(201).json(transactions);
     } catch (error) {
